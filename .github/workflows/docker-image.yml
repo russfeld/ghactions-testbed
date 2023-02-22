@@ -50,7 +50,6 @@ jobs:
           images: ghcr.io/${{ github.repository }}
           flavor: |
             latest=false
-            prefix=ghcr.io/${{ github.repository }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
