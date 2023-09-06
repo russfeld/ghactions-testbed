@@ -7,6 +7,8 @@ name: Build Docker
 # https://docs.github.com/en/actions/using-workflows/triggering-a-workflow
 on:
   push:
+    # branches
+    #  - main
     tags:
       - "v*.*.*"
 
@@ -55,7 +57,8 @@ jobs:
             type=ref,event=pr
             type=semver,pattern={{version}}
             type=edge,branch=main
-            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+
+          # type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
           
 
       # Step 2 - Build and Push Docker Image
