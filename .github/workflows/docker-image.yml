@@ -51,13 +51,13 @@ jobs:
         with:
           images: ghcr.io/${{ github.repository }}
           flavor: |
-            latest=false
+            latest=auto
+          # latest = false # for manually enabling latest tag on main branch push
           tags: |
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
             type=edge,branch=main
-
           # type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
           
 
